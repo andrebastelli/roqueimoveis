@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 40 30% 98%;
+  --foreground: 330 30% 12%;
+  --border: 330 10% 88%;
+  --muted: 40 15% 95%;
+  --muted-foreground: 330 8% 40%;
+  --primary: 330 85% 21%;
+  --primary-foreground: 40 30% 98%;
+  --gold: 44 100% 49%;
+  --gold-foreground: 330 30% 12%;
+}
+
+html { scroll-behavior: smooth; }
+body {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-family: "Roboto", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+h1, h2, h3 { letter-spacing: -0.02em; }
