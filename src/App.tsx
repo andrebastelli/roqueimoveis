@@ -726,13 +726,13 @@ function Beneficios() {
 <div className="relative">
 
   {/* FUNDO DECORATIVO */}
-<div 
-className="
-  absolute -inset-[20px] md:-inset-[40px]
-  bg-gradient-to-br from-gold/20 via-transparent to-primary/20 
-  blur-[50px] md:blur-[80px]
-  opacity-40 md:opacity-50 rounded-[30px]
-" />
+<div
+  className="
+    absolute -inset-[10px] md:-inset-[20px]
+    rounded-[18px] md:rounded-[24px]
+    bg-gradient-gold
+  "
+/>
 
   {/* GLOW */}
   <div className="absolute -inset-[40px] 
