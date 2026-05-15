@@ -7,4 +7,11 @@ export default defineConfig({
   resolve: {
     alias: { "@": path.resolve(__dirname, "./src") },
   },
+  server: {
+    hmr: {
+      protocol: "ws",
+      host: "localhost",
+      port: 5173,
+    },
+  },
 });
