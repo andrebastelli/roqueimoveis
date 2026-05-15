@@ -697,18 +697,21 @@ function Beneficios() {
             target="_blank"
             rel="noopener noreferrer"
             className="
-              relative overflow-hidden group
-              mt-[32px] inline-flex items-center justify-center
-              font-bold rounded-md transition-all duration-300
+  relative overflow-hidden group
+  mt-[32px] inline-flex items-center justify-center
+  font-bold rounded-md transition-all duration-300
 
-              bg-gradient-gold text-gold-foreground shadow-gold
+  bg-gradient-gold text-gold-foreground shadow-gold
 
-              px-[24px] py-[16px]
-              md:px-[30px] md:py-[18px]
+  px-[18px] py-[12px]
+  text-[15px]
 
-              hover:-translate-y-[3px]
-              hover:shadow-[0_10px_30px_rgba(212,114,65,0.45)]
-            "
+  md:px-[30px] md:py-[18px]
+  md:text-[15px]
+
+  hover:-translate-y-[3px]
+  hover:shadow-[0_10px_30px_rgba(212,114,65,0.45)]
+"
           >
             <span className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 bg-gradient-to-r from-transparent via-white/30 to-transparent translate-x-[-100%] group-hover:translate-x-[100%]" />
 
@@ -725,7 +728,8 @@ function Beneficios() {
   {/* FUNDO DECORATIVO */}
 <div
   className="
-    absolute -inset-[20px] rounded-[24px] 
+    absolute -inset-[10px] md:-inset-[20px]
+    rounded-[18px] md:rounded-[24px]
     bg-gradient-gold
   "
 />
@@ -758,10 +762,11 @@ function Beneficios() {
   </div>
 
   {/* CARD MELHORADO */}
-  <div className="hidden md:block absolute bottom-[-20px] left-[-20px]
-    bg-white/90 backdrop-blur-md border border-white/40 
-    rounded-xl shadow-[0_10px_30px_rgba(0,0,0,0.25)]
-    p-[20px] max-w-[240px]"
+  <div className="block md:block absolute md:bottom-[-20px] md:left-[-20px]
+  bottom-[10px] left-[10px]
+  bg-white/90 backdrop-blur-md border border-white/40 
+  rounded-xl shadow-[0_10px_30px_rgba(0,0,0,0.25)]
+  p-[10px] md:p-[16px] max-w-[200px] md:max-w-[240px]"
   >
     <div className="font-black text-primary text-[28px]">
       +30 anos
