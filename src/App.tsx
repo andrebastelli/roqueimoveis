@@ -704,7 +704,7 @@ function Beneficios() {
   bg-gradient-gold text-gold-foreground shadow-gold
 
   px-[18px] py-[12px]
-  text-[13px]
+  text-[10px]
 
   md:px-[30px] md:py-[18px]
   md:text-[15px]
