@@ -762,10 +762,11 @@ function Beneficios() {
   </div>
 
   {/* CARD MELHORADO */}
-  <div className="hidden md:block absolute bottom-[-20px] left-[-20px]
-    bg-white/90 backdrop-blur-md border border-white/40 
-    rounded-xl shadow-[0_10px_30px_rgba(0,0,0,0.25)]
-    p-[20px] max-w-[240px]"
+  <div className="block md:block absolute md:bottom-[-20px] md:left-[-20px]
+  bottom-[10px] left-[10px]
+  bg-white/90 backdrop-blur-md border border-white/40 
+  rounded-xl shadow-[0_10px_30px_rgba(0,0,0,0.25)]
+  p-[14px] md:p-[20px] max-w-[200px] md:max-w-[240px]"
   >
     <div className="font-black text-primary text-[28px]">
       +30 anos
