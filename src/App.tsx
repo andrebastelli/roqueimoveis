@@ -697,18 +697,21 @@ function Beneficios() {
             target="_blank"
             rel="noopener noreferrer"
             className="
-              relative overflow-hidden group
-              mt-[32px] inline-flex items-center justify-center
-              font-bold rounded-md transition-all duration-300
+  relative overflow-hidden group
+  mt-[32px] inline-flex items-center justify-center
+  font-bold rounded-md transition-all duration-300
 
-              bg-gradient-gold text-gold-foreground shadow-gold
+  bg-gradient-gold text-gold-foreground shadow-gold
 
-              px-[24px] py-[16px]
-              md:px-[30px] md:py-[18px]
+  px-[18px] py-[12px]
+  text-[13px]
 
-              hover:-translate-y-[3px]
-              hover:shadow-[0_10px_30px_rgba(212,114,65,0.45)]
-            "
+  md:px-[30px] md:py-[18px]
+  md:text-[15px]
+
+  hover:-translate-y-[3px]
+  hover:shadow-[0_10px_30px_rgba(212,114,65,0.45)]
+"
           >
             <span className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 bg-gradient-to-r from-transparent via-white/30 to-transparent translate-x-[-100%] group-hover:translate-x-[100%]" />
 
@@ -723,12 +726,13 @@ function Beneficios() {
 <div className="relative">
 
   {/* FUNDO DECORATIVO */}
-<div
-  className="
-    absolute -inset-[20px] rounded-[24px] 
-    bg-gradient-gold
-  "
-/>
+<div 
+className="
+  absolute -inset-[20px] md:-inset-[40px]
+  bg-gradient-to-br from-gold/20 via-transparent to-primary/20 
+  blur-[50px] md:blur-[80px]
+  opacity-40 md:opacity-50 rounded-[30px]
+" />
 
   {/* GLOW */}
   <div className="absolute -inset-[40px] 
