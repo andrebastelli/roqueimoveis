@@ -766,7 +766,7 @@ function Beneficios() {
   bottom-[10px] left-[10px]
   bg-white/90 backdrop-blur-md border border-white/40 
   rounded-xl shadow-[0_10px_30px_rgba(0,0,0,0.25)]
-  p-[14px] md:p-[20px] max-w-[200px] md:max-w-[240px]"
+  p-[10px] md:p-[16px] max-w-[200px] md:max-w-[240px]"
   >
     <div className="font-black text-primary text-[28px]">
       +30 anos
