@@ -7,12 +7,4 @@ export default defineConfig({
   resolve: {
     alias: { "@": path.resolve(__dirname, "./src") },
   },
-  server: {
-    middlewareMode: true,
-    hmr: {
-      host: undefined,
-      port: undefined,
-      protocol: "ws",
-    },
-  },
 });
