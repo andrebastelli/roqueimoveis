@@ -1,15 +1,17 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import heroImg from "@/assets/hero-condominio.jpg";
 import familiaImg from "@/assets/familia-condominio.jpg";
 import gourmetImg from "@/assets/area-gourmet.jpg";
 import aereoImg from "@/assets/condominio-aereo.jpg";
 
 const WHATSAPP_NUMBER = import.meta.env.VITE_WHATSAPP_NUMBER || "5519987102796";
-const WHATSAPP_URL =
-  `https://wa.me/${WHATSAPP_NUMBER}?text=` +
-  encodeURIComponent(
-    "Olá, gostaria de um atendimento personalizado para Casas em Condomínio"
-  );
+
+const whatsappLink = (mensagem: string) =>
+  `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(mensagem)}`;
+
+const WHATSAPP_URL = whatsappLink(
+  "Olá, gostaria de um atendimento personalizado para Casas em Condomínio"
+);
 
 const LOGO = "https://i.ibb.co/9Hyz5vjG/roque-imoveis.png";
 
@@ -144,6 +146,30 @@ function Header() {
 
 /* ---------- HERO ---------- */
 function Hero() {
+  useEffect(() => {
+    const script = document.createElement("script");
+
+    script.src =
+      "https://d335luupugsy2.cloudfront.net/js/rdstation-forms/stable/rdstation-forms.min.js";
+
+    script.async = true;
+
+    script.onload = () => {
+      if ((window as any).RDStationForms) {
+        new (window as any).RDStationForms(
+          "ID_DO_SEU_FORMULARIO",
+          "rd-form-container"
+        ).createForm();
+      }
+    };
+
+    document.body.appendChild(script);
+
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
+
   return (
     <section id="topo" className="relative isolate overflow-hidden">
       <img
@@ -151,205 +177,100 @@ function Hero() {
         alt="Casa moderna em condomínio fechado em Limeira ao entardecer"
         width={1600}
         height={1100}
-        // @ts-expect-error fetchpriority
-        fetchpriority="high"
+        fetchPriority="high"
         decoding="async"
         className="absolute inset-0 -z-10 h-full w-full object-cover"
       />
 
+      
+
       <div className="absolute inset-0 -z-10 bg-gradient-to-r from-primary/90 via-primary/70 to-primary/30" />
 
       {/* CONTAINER */}
-      <div
-        className="
-          mx-auto max-w-7xl
-          
-          /* PADDING LATERAL */
-          px-[16px]            /* MOBILE */
-          md:px-[24px]         /* TABLET */
-          lg:px-[32px]         /* DESKTOP */
+      <div className="mx-auto max-w-7xl px-[16px] md:px-[24px] lg:px-[32px] py-[96px] md:py-[140px] lg:py-[180px]">
+        
+        {/* GRID PRINCIPAL */}
+        <div className="grid lg:grid-cols-2 gap-[40px] items-center">
 
-          /* PADDING VERTICAL */
-          py-[96px]            /* MOBILE */
-          md:py-[140px]        /* TABLET */
-          lg:py-[180px]        /* DESKTOP */
-        "
-      >
-        <div className="max-w-[640px] text-primary-foreground">
-          
-          {/* TAG */}
-          <span
-            className="
-              inline-block bg-gold/95 text-gold-foreground font-bold uppercase rounded
+          {/* ESQUERDA */}
+          <div className="max-w-[640px] text-primary-foreground">
 
-              text-[11px]       /* MOBILE */
-              md:text-[12px]    /* TABLET */
-              lg:text-[13px]    /* DESKTOP */
+            <span className="inline-block bg-gold/95 text-gold-foreground font-bold uppercase rounded text-[11px] md:text-[12px] lg:text-[13px] px-[10px] py-[6px] md:px-[12px]">
+              Condomínios Fechados • Limeira
+            </span>
 
-              px-[10px] py-[6px]   /* MOBILE */
-              md:px-[12px] md:py-[6px]
-            "
-          >
-            Condomínios Fechados • Limeira
-          </span>
+            <h1 className="mt-[20px] font-black leading-[1.05] text-[32px] md:text-[48px] lg:text-[60px]">
+              Segurança não é luxo.<br />
+              É decisão da sua família.
+            </h1>
 
-          {/* HEADLINE */}
-          <h1
-            className="
-              mt-[20px] font-black leading-[1.05]
+            <p className="mt-[20px] max-w-[520px] text-primary-foreground/90 text-[15px] md:text-[18px] lg:text-[20px]">
+              Casas em condomínio fechado em Limeira com curadoria da imobiliária mais tradicional da região. Atendimento personalizado, do tour à escritura.
+            </p>
 
-              text-[32px]       /* MOBILE */
-              md:text-[48px]    /* TABLET */
-              lg:text-[60px]    /* DESKTOP */
-            "
-          >
-            Segurança não é luxo.<br />
-            É decisão da sua família.
-          </h1>
+            <div className="mt-[32px] flex flex-col sm:flex-row gap-[12px]">
+              
+              <a
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="relative overflow-hidden group inline-flex items-center justify-center font-bold rounded-md transition-all duration-300 bg-gradient-gold text-gold-foreground shadow-gold px-[24px] py-[16px] text-[15px] md:px-[30px] md:py-[18px] md:text-[17px] hover:-translate-y-[3px] hover:shadow-[0_10px_30px_rgba(212,114,65,0.45)]"
+              >
+                <span className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 bg-gradient-to-r from-transparent via-white/30 to-transparent translate-x-[-100%] group-hover:translate-x-[100%]" />
+                <span className="relative z-10 flex items-center gap-[8px]">
+                  Quero ver casas disponíveis →
+                </span>
+              </a>
 
-          {/* SUBTEXTO */}
-          <p
-            className="
-              mt-[20px] max-w-[520px] text-primary-foreground/90
+              <a
+                href="#contato"
+                className="relative overflow-hidden group inline-flex items-center justify-center font-semibold rounded-md transition-all duration-300 border border-white/30 text-primary-foreground bg-white/5 backdrop-blur-sm px-[24px] py-[16px] text-[15px] md:px-[30px] md:py-[18px] md:text-[17px] hover:-translate-y-[2px] hover:bg-white hover:text-primary hover:border-white hover:shadow-[0_8px_25px_rgba(0,0,0,0.25)]"
+              >
+                Agendar visita personalizada
+              </a>
+            </div>
 
-              text-[15px]       /* MOBILE */
-              md:text-[18px]    /* TABLET */
-              lg:text-[20px]    /* DESKTOP */
-            "
-          >
-            Casas em condomínio fechado em Limeira com curadoria da imobiliária mais tradicional da região. Atendimento personalizado, do tour à escritura.
-          </p>
+            <ul className="mt-[40px] grid grid-cols-3 gap-[16px] max-w-[420px] text-[12px] md:text-[14px]">
+              {[
+                ["+30", "anos de tradição"],
+                ["+500", "famílias atendidas"],
+                ["100%", "imóveis verificados"],
+              ].map(([n, l]) => (
+                <li key={l}>
+                  <div className="font-black text-gold text-[22px] md:text-[28px] lg:text-[32px]">
+                    {n}
+                  </div>
+                  <div className="text-primary-foreground/80 leading-tight text-[11px] md:text-[13px]">
+                    {l}
+                  </div>
+                </li>
+              ))}
+            </ul>
 
-          {/* BOTÕES */}
-          <div
-  className="
-    mt-[32px]
-    flex flex-col sm:flex-row
-    gap-[12px]
-  "
->
-  {/* BOTÃO PRINCIPAL */}
-  <a
-    href={WHATSAPP_URL}
-    target="_blank"
-    rel="noopener noreferrer"
-    className="
-      relative overflow-hidden group
-      inline-flex items-center justify-center
-      font-bold rounded-md transition-all duration-300
+          </div>
 
-      bg-gradient-gold text-gold-foreground shadow-gold
+          {/* DIREITA - FORMULÁRIO */}
+          <div className="w-full max-w-[420px] ml-auto">
+            <div className="bg-white/95 backdrop-blur rounded-lg p-[24px] shadow-[0_20px_60px_rgba(0,0,0,0.35)]">
 
-      /* MOBILE */
-      px-[24px] py-[16px]
-      text-[15px]
+              <div className="mb-[16px]">
+                <h3 className="text-[20px] font-bold text-primary">
+                  Receba as melhores oportunidades
+                </h3>
+                <p className="text-[14px] text-gray-600">
+                  Preencha e fale com um especialista agora.
+                </p>
+              </div>
 
-      /* DESKTOP */
-      md:px-[30px] md:py-[18px]
-      md:text-[17px]
+              {/* RD STATION FORM */}
+              <div id="rd-form-container"></div>
 
-      /* HOVER */
-      hover:-translate-y-[3px]
-      hover:shadow-[0_10px_30px_rgba(212,114,65,0.45)]
-    "
-  >
-    {/* SHINE */}
-    <span
-      className="
-        absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500
-        bg-gradient-to-r from-transparent via-white/30 to-transparent
-        translate-x-[-100%] group-hover:translate-x-[100%]
-      "
-    />
-
-    <span className="relative z-10 flex items-center gap-[8px]">
-      Quero ver casas disponíveis
-      <span className="transition-transform group-hover:translate-x-[4px]">
-        →
-      </span>
-    </span>
-  </a>
-
-  {/* BOTÃO SECUNDÁRIO */}
-  <a
-    href="#contato"
-    className="
-      relative overflow-hidden group
-      inline-flex items-center justify-center
-      font-semibold rounded-md transition-all duration-300
-
-      border border-white/30 text-primary-foreground
-      bg-white/5 backdrop-blur-sm
-
-      /* MOBILE */
-      px-[24px] py-[16px]
-      text-[15px]
-
-      /* DESKTOP */
-      md:px-[30px] md:py-[18px]
-      md:text-[17px]
-
-      /* HOVER */
-      hover:-translate-y-[2px]
-      hover:bg-white hover:text-primary
-      hover:border-white
-      hover:shadow-[0_8px_25px_rgba(0,0,0,0.25)]
-    "
-  >
-    <span className="flex items-center gap-[8px]">
-      Agendar visita personalizada
-    </span>
-  </a>
-</div>
-
-          {/* PROVAS SOCIAIS */}
-          <ul
-            className="
-              mt-[40px]
-              grid grid-cols-3
-              gap-[16px]
-              max-w-[420px]
-
-              text-[12px]       /* MOBILE */
-              md:text-[14px]    /* DESKTOP */
-            "
-          >
-            {[
-              ["+30", "anos de tradição"],
-              ["+500", "famílias atendidas"],
-              ["100%", "imóveis verificados"],
-            ].map(([n, l]) => (
-              <li key={l}>
-                
-                <div
-                  className="
-                    font-black text-gold
-
-                    text-[22px]     /* MOBILE */
-                    md:text-[28px]  /* TABLET */
-                    lg:text-[32px]  /* DESKTOP */
-                  "
-                >
-                  {n}
-                </div>
-
-                <div
-                  className="
-                    text-primary-foreground/80 leading-tight
-
-                    text-[11px]     /* MOBILE */
-                    md:text-[13px]  /* DESKTOP */
-                  "
-                >
-                  {l}
-                </div>
-
-              </li>
-            ))}
-          </ul>
+            </div>
+          </div>
 
         </div>
       </div>
+
     </section>
   );
 }
@@ -1087,7 +1008,7 @@ function Galeria() {
 
   {/* BOTÃO */}
   <a
-    href={`${WHATSAPP_URL}?text=${encodeURIComponent(mensagem)}`}
+    href={whatsappLink(mensagem)}
     target="_blank"
     className="
       mt-[10px] inline-flex items-center justify-center w-full
@@ -1114,7 +1035,7 @@ function Galeria() {
         {/* CTA FINAL */}
         <div className="mt-[50px] flex justify-center">
           <a
-            href={`${WHATSAPP_URL}?text=${encodeURIComponent("Olá! Quero ver o portfólio completo de casas em condomínio.")}`}
+            href={whatsappLink("Olá! Quero ver o portfólio completo de casas em condomínio.")}
             target="_blank"
             className="
               relative overflow-hidden group
@@ -1873,7 +1794,7 @@ function Faq2() {
 
     {/* BOTÃO */}
     <a
-      href={`${WHATSAPP_URL}?text=${encodeURIComponent("Ainda estou com dúvida")}`}
+      href={whatsappLink("Ainda estou com dúvida")}
       target="_blank"
       className="
         relative z-10 mt-[16px]
