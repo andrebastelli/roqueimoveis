@@ -232,20 +232,21 @@ function Hero() {
                 href={WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="relative overflow-hidden group inline-flex items-center justify-center font-bold rounded-md transition-all duration-300 bg-gradient-gold text-gold-foreground shadow-gold px-[24px] py-[16px] text-[15px] md:px-[30px] md:py-[18px] md:text-[17px] hover:-translate-y-[3px] hover:shadow-[0_10px_30px_rgba(212,114,65,0.45)]"
+                className="relative overflow-hidden group inline-flex items-center justify-center whitespace-nowrap font-bold rounded-md transition-all duration-300 bg-gradient-gold text-gold-foreground shadow-gold px-[24px] py-[16px] text-[15px] md:px-[30px] md:py-[18px] md:text-[17px] hover:-translate-y-[3px] hover:shadow-[0_10px_30px_rgba(212,114,65,0.45)]"
               >
                 <span className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 bg-gradient-to-r from-transparent via-white/30 to-transparent translate-x-[-100%] group-hover:translate-x-[100%]" />
-                <span className="relative z-10 flex items-center gap-[8px]">
+
+                <span className="relative z-10 inline-flex items-center gap-[8px] whitespace-nowrap">
                   Quero ver casas disponíveis →
                 </span>
               </a>
 
               <a
-                href="#contato"
-                className="relative overflow-hidden group inline-flex items-center justify-center font-semibold rounded-md transition-all duration-300 border border-white/30 text-primary-foreground bg-white/5 backdrop-blur-sm px-[24px] py-[16px] text-[15px] md:px-[30px] md:py-[18px] md:text-[17px] hover:-translate-y-[2px] hover:bg-white hover:text-primary hover:border-white hover:shadow-[0_8px_25px_rgba(0,0,0,0.25)]"
-              >
-                Agendar visita personalizada
-              </a>
+  href="#contato"
+  className="relative overflow-hidden group inline-flex items-center justify-center whitespace-nowrap font-semibold rounded-md transition-all duration-300 border border-white/30 text-primary-foreground bg-white/5 backdrop-blur-sm px-[24px] py-[16px] text-[15px] md:px-[30px] md:py-[18px] md:text-[17px] hover:-translate-y-[2px] hover:bg-white hover:text-primary hover:border-white hover:shadow-[0_8px_25px_rgba(0,0,0,0.25)]"
+>
+  Agendar visita personalizada
+</a>
             </div>
 
             <ul className="mt-[40px] grid grid-cols-3 gap-[16px] max-w-[420px] text-[12px] md:text-[14px]">
