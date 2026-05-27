@@ -147,28 +147,46 @@ function Header() {
 /* ---------- HERO ---------- */
 function Hero() {
   useEffect(() => {
-    const script = document.createElement("script");
+  const formId = "roque-casa-em-condominio-lp-2ae7709192d34234a04c";
+  const trackingId = "UA-125783347-1";
 
-    script.src =
-      "https://d335luupugsy2.cloudfront.net/js/rdstation-forms/stable/rdstation-forms.min.js";
+  const container = document.getElementById(formId);
 
-    script.async = true;
+  if (!container) return;
 
-    script.onload = () => {
-      if ((window as any).RDStationForms) {
-        new (window as any).RDStationForms(
-          "ID_DO_SEU_FORMULARIO",
-          "rd-form-container"
-        ).createForm();
-      }
-    };
+  if (container.getAttribute("data-rd-loaded") === "true") return;
 
-    document.body.appendChild(script);
+  container.innerHTML = "";
 
-    return () => {
-      document.body.removeChild(script);
-    };
-  }, []);
+  const createRdForm = () => {
+    if ((window as any).RDStationForms) {
+      container.innerHTML = "";
+
+      new (window as any).RDStationForms(formId, trackingId).createForm();
+
+      container.setAttribute("data-rd-loaded", "true");
+    }
+  };
+
+  const existingScript = document.querySelector(
+    'script[src*="rdstation-forms"]'
+  );
+
+  if (existingScript) {
+    createRdForm();
+    return;
+  }
+
+  const script = document.createElement("script");
+
+  script.src =
+    "https://d335luupugsy2.cloudfront.net/js/rdstation-forms/stable/rdstation-forms.min.js";
+
+  script.async = true;
+  script.onload = createRdForm;
+
+  document.body.appendChild(script);
+}, []);
 
   return (
     <section id="topo" className="relative isolate overflow-hidden">
@@ -263,7 +281,10 @@ function Hero() {
               </div>
 
               {/* RD STATION FORM */}
-              <div id="rd-form-container"></div>
+              <div
+                role="main"
+                id="roque-casa-em-condominio-lp-2ae7709192d34234a04c"
+              ></div>
 
             </div>
           </div>
