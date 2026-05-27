@@ -147,34 +147,45 @@ function Header() {
 /* ---------- HERO ---------- */
 function Hero() {
   useEffect(() => {
+  const formId = "roque-casa-em-condominio-lp-2ae7709192d34234a04c";
+  const trackingId = "UA-125783347-1";
+
+  const container = document.getElementById(formId);
+
+  if (!container) return;
+
+  if (container.getAttribute("data-rd-loaded") === "true") return;
+
+  container.innerHTML = "";
+
+  const createRdForm = () => {
+    if ((window as any).RDStationForms) {
+      container.innerHTML = "";
+
+      new (window as any).RDStationForms(formId, trackingId).createForm();
+
+      container.setAttribute("data-rd-loaded", "true");
+    }
+  };
+
   const existingScript = document.querySelector(
     'script[src*="rdstation-forms"]'
   );
 
-  if (!existingScript) {
-    const script = document.createElement("script");
-    script.src =
-      "https://d335luupugsy2.cloudfront.net/js/rdstation-forms/stable/rdstation-forms.min.js";
-    script.async = true;
-
-    script.onload = () => {
-      if ((window as any).RDStationForms) {
-        new (window as any).RDStationForms(
-          "roque-casa-em-condominio-lp-2ae7709192d34234a04c",
-          "rd-form-container"
-        ).createForm();
-      }
-    };
-
-    document.body.appendChild(script);
-  } else {
-    if ((window as any).RDStationForms) {
-      new (window as any).RDStationForms(
-        "roque-casa-em-condominio-lp-2ae7709192d34234a04c",
-        "rd-form-container"
-      ).createForm();
-    }
+  if (existingScript) {
+    createRdForm();
+    return;
   }
+
+  const script = document.createElement("script");
+
+  script.src =
+    "https://d335luupugsy2.cloudfront.net/js/rdstation-forms/stable/rdstation-forms.min.js";
+
+  script.async = true;
+  script.onload = createRdForm;
+
+  document.body.appendChild(script);
 }, []);
 
   return (
@@ -270,7 +281,10 @@ function Hero() {
               </div>
 
               {/* RD STATION FORM */}
-              <div id="rd-form-container"></div>
+              <div
+                role="main"
+                id="roque-casa-em-condominio-lp-2ae7709192d34234a04c"
+              ></div>
 
             </div>
           </div>
