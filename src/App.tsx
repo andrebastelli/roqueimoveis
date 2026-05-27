@@ -147,28 +147,35 @@ function Header() {
 /* ---------- HERO ---------- */
 function Hero() {
   useEffect(() => {
-    const script = document.createElement("script");
+  const existingScript = document.querySelector(
+    'script[src*="rdstation-forms"]'
+  );
 
+  if (!existingScript) {
+    const script = document.createElement("script");
     script.src =
       "https://d335luupugsy2.cloudfront.net/js/rdstation-forms/stable/rdstation-forms.min.js";
-
     script.async = true;
 
     script.onload = () => {
       if ((window as any).RDStationForms) {
         new (window as any).RDStationForms(
-          "ID_DO_SEU_FORMULARIO",
+          "roque-casa-em-condominio-lp-2ae7709192d34234a04c",
           "rd-form-container"
         ).createForm();
       }
     };
 
     document.body.appendChild(script);
-
-    return () => {
-      document.body.removeChild(script);
-    };
-  }, []);
+  } else {
+    if ((window as any).RDStationForms) {
+      new (window as any).RDStationForms(
+        "roque-casa-em-condominio-lp-2ae7709192d34234a04c",
+        "rd-form-container"
+      ).createForm();
+    }
+  }
+}, []);
 
   return (
     <section id="topo" className="relative isolate overflow-hidden">
