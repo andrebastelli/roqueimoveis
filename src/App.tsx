@@ -868,67 +868,73 @@ function Diferenciais() {
 /* ---------- GALERIA ---------- */
 function Galeria() {
   const cards = [
-  {
-    img: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
-    t: "Casa em Condomínio 2 Quartos 120m²",
-    bairro: "Jardim Ouro Verde",
-    cidade: "Limeira/SP",
-    codigo: "66434",
-    preco: "R$ 640.000",
-    detalhes: ["2 Quartos", "1 Suíte", "2 Vagas", "120m²"],
-    extras: ["Estuda Permuta", "Aceita Financiamento"],
-  },
-  {
-    img: "https://images.unsplash.com/photo-1570129477492-45c003edd2be",
-    t: "Casa moderna em condomínio",
-    bairro: "Residencial Roland",
-    cidade: "Limeira/SP",
-    codigo: "66420",
-    preco: "R$ 780.000",
-    detalhes: ["3 Quartos", "1 Suíte", "2 Vagas", "140m²"],
-    extras: ["Aceita Financiamento"],
-  },
-  {
-    img: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6",
-    t: "Casa com área gourmet",
-    bairro: "Terras de São Bento",
-    cidade: "Limeira/SP",
-    codigo: "66398",
-    preco: "R$ 920.000",
-    detalhes: ["3 Quartos", "1 Suíte", "3 Vagas", "180m²"],
-    extras: ["Estuda Permuta"],
-  },
-  {
-    img: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c",
-    t: "Casa térrea em condomínio",
-    bairro: "Granja Machado",
-    cidade: "Limeira/SP",
-    codigo: "66380",
-    preco: "R$ 590.000",
-    detalhes: ["2 Quartos", "1 Suíte", "2 Vagas", "110m²"],
-    extras: ["Aceita Financiamento"],
-  },
-  {
-    img: "https://images.unsplash.com/photo-1580587771525-78b9dba3b914",
-    t: "Casa com piscina e lazer",
-    bairro: "Parque Egisto Ragazzo",
-    cidade: "Limeira/SP",
-    codigo: "66355",
-    preco: "R$ 1.150.000",
-    detalhes: ["4 Quartos", "2 Suítes", "3 Vagas", "220m²"],
-    extras: ["Estuda Permuta"],
-  },
-  {
-    img: "https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6",
-    t: "Casa alto padrão",
-    bairro: "Residencial Ilha de Bali",
-    cidade: "Limeira/SP",
-    codigo: "66310",
-    preco: "R$ 1.300.000",
-    detalhes: ["4 Quartos", "2 Suítes", "4 Vagas", "250m²"],
-    extras: ["Aceita Financiamento"],
-  },
-];
+    {
+      img: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
+      t: "Residência Condomínio Alto da Capela",
+      bairro: "Jardim Ouro Verde",
+      cidade: "Limeira/SP",
+      codigo: "57847",
+      preco: "R$ 1.490.000,00",
+      detalhes: ["3 Quartos", "1 Suíte", "3 Banheiros", "4 Vagas", "360 m2"],
+      extras: ["Estuda Permuta", "Aceita Financiamento", "Pet Friendly"],
+      link: "https://roqueimoveis.com.br/imovel/57847/casa-em-condominio-3-quartos-alto-da-capela-jardim-residencial-alto-da-capela-limeira/",
+    },
+    {
+      img: "https://images.unsplash.com/photo-1570129477492-45c003edd2be",
+      t: "Casa moderna em condomínio",
+      bairro: "Residencial Roland",
+      cidade: "Limeira/SP",
+      codigo: "61426",
+      preco: "R$ 780.000",
+      detalhes: ["4 Quartos", "1 Suíte", "2 Vagas", "140m²"],
+      extras: ["Aceita Financiamento"],
+      link: "https://roqueimoveis.com.br/imovel/61426/casa-em-condominio-4-quartos-residencial-roland-iii-parque-residencial-roland-iii-limeira/",
+    },
+    {
+      img: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6",
+      t: "Casa com área gourmet",
+      bairro: "Portal de São Clemente",
+      cidade: "Limeira/SP",
+      codigo: "64251",
+      preco: "R$ 920.000",
+      detalhes: ["3 Quartos", "1 Suíte", "3 Vagas", "180m²"],
+      extras: ["Estuda Permuta"],
+      link: "https://roqueimoveis.com.br/imovel/64251/casa-em-condominio-3-quartos-portal-de-sao-clemente-portal-de-sao-clemente-limeira/",
+    },
+    {
+      img: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c",
+      t: "Casa térrea em condomínio",
+      bairro: "Ville de France",
+      cidade: "Limeira/SP",
+      codigo: "66707",
+      preco: "R$ 590.000",
+      detalhes: ["3 Quartos", "1 Suíte", "2 Vagas", "110m²"],
+      extras: ["Aceita Financiamento"],
+      link: "https://roqueimoveis.com.br/imovel/66707/casa-em-condominio-3-quartos-ville-de-france-ville-de-france-limeira/",
+    },
+    {
+      img: "https://images.unsplash.com/photo-1580587771525-78b9dba3b914",
+      t: "Casa com piscina e lazer",
+      bairro: "Colinas de São João",
+      cidade: "Limeira/SP",
+      codigo: "68366",
+      preco: "R$ 1.150.000",
+      detalhes: ["3 Quartos", "1 Suíte", "3 Vagas", "220m²"],
+      extras: ["Estuda Permuta"],
+      link: "https://roqueimoveis.com.br/imovel/68366/casa-em-condominio-3-quartos-colinas-de-sao-joao-jardim-colinas-de-sao-joao-limeira/",
+    },
+    {
+      img: "https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6",
+      t: "Casa alto padrão",
+      bairro: "Residencial Roland I",
+      cidade: "Limeira/SP",
+      codigo: "69148",
+      preco: "R$ 1.300.000",
+      detalhes: ["3 Quartos", "1 Suíte", "4 Vagas", "250m²"],
+      extras: ["Aceita Financiamento"],
+      link: "https://roqueimoveis.com.br/imovel/69148/casa-em-condominio-3-quartos-residencial-roland-i-parque-residencial-roland-limeira/",
+    },
+  ];
 
   return (
     <section
@@ -1014,7 +1020,7 @@ function Galeria() {
                   </div>
 
                   {/* DETALHES */}
-                  <div className="grid grid-cols-2 gap-[6px] text-[12px] text-gray-700 mt-[12px]">
+                  <div className="grid grid-cols-3 gap-[6px] text-[12px] text-gray-700 mt-[12px]">
                     {c.detalhes.map((d) => (
                       <span key={d}>{d}</span>
                     ))}
