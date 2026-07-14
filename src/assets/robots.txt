@@ -7,4 +7,4 @@ Disallow: /api/
 Disallow: /private/
 
 # Sitemap
-Sitemap: https://lp.roqueimoveis.com.br/sitemap.xml
+Sitemap: https://casaemcondominio.roqueimoveis.com.br/sitemap.xml
