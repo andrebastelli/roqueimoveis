@@ -693,7 +693,7 @@ function Beneficios() {
   {/* GLOW */}
   <div className="absolute -inset-[40px] 
     bg-gradient-to-br from-gold/20 via-transparent to-primary/20 
-    blur-[80px] opacity-50 rounded-[30px]"
+    blur-[30px] md:blur-[80px] opacity-50 rounded-[30px]"
   />
 
   {/* CONTAINER DA IMAGEM */}

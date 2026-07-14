@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# Áreas privadas (caso existam futuramente)
+Disallow: /admin/
+Disallow: /api/
+Disallow: /private/
+
+# Sitemap
+Sitemap: https://lp.roqueimoveis.com.br/sitemap.xml
