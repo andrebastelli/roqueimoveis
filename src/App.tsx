@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
-import heroImg from "@/assets/hero-condominio.jpg";
-import familiaImg from "@/assets/familia-condominio.jpg";
-import gourmetImg from "@/assets/area-gourmet.jpg";
-import aereoImg from "@/assets/condominio-aereo.jpg";
+import heroImg from "@/assets/hero-condominio.webp";
+import familiaImg from "@/assets/familia-condominio.webp";
+import gourmetImg from "@/assets/area-gourmet.webp";
+import aereoImg from "@/assets/condominio-aereo.webp";
+import logo from "@/assets/logo.webp";
 import img57847 from "@/assets/57847.webp";
 import img61426 from "@/assets/61426.webp";
 import img64251 from "@/assets/64251.webp";
@@ -18,8 +19,6 @@ const whatsappLink = (mensagem: string) =>
 const WHATSAPP_URL = whatsappLink(
   "Olá, gostaria de um atendimento personalizado para Casas em Condomínio"
 );
-
-const LOGO = "https://i.ibb.co/9Hyz5vjG/roque-imoveis.png";
 
 export default function App() {
   return (
@@ -68,7 +67,7 @@ function Header() {
           aria-label="Roque Imóveis - Início"
         >
           <img
-            src={LOGO}
+            src={logo}
             alt="Roque Imóveis"
             width={140}
             height={40}
@@ -152,46 +151,58 @@ function Header() {
 
 /* ---------- HERO ---------- */
 function Hero() {
-  useEffect(() => {
+useEffect(() => {
+  let loaded = false;
+
   const formId = "roque-casa-em-condominio-lp-2ae7709192d34234a04c";
   const trackingId = "UA-125783347-1";
 
-  const container = document.getElementById(formId);
+  const loadRD = () => {
+    if (loaded) return;
+    loaded = true;
 
-  if (!container) return;
+    const container = document.getElementById(formId);
+    if (!container) return;
 
-  if (container.getAttribute("data-rd-loaded") === "true") return;
+    // 🔥 LIMPA antes de renderizar
+    container.innerHTML = "";
 
-  container.innerHTML = "";
+    const createForm = () => {
+      if ((window as any).RDStationForms) {
+        container.innerHTML = ""; // garante limpeza
 
-  const createRdForm = () => {
-    if ((window as any).RDStationForms) {
-      container.innerHTML = "";
+        new (window as any).RDStationForms(formId, trackingId).createForm();
 
-      new (window as any).RDStationForms(formId, trackingId).createForm();
+        container.setAttribute("data-rd-loaded", "true");
+      }
+    };
 
-      container.setAttribute("data-rd-loaded", "true");
+    const existingScript = document.querySelector(
+      'script[src*="rdstation-forms"]'
+    );
+
+    if (existingScript) {
+      createForm();
+      return;
     }
+
+    const script = document.createElement("script");
+    script.src =
+      "https://d335luupugsy2.cloudfront.net/js/rdstation-forms/stable/rdstation-forms.min.js";
+    script.async = true;
+    script.onload = createForm;
+
+    document.body.appendChild(script);
   };
 
-  const existingScript = document.querySelector(
-    'script[src*="rdstation-forms"]'
-  );
+  // dispara só uma vez
+  window.addEventListener("scroll", loadRD, { once: true });
+  window.addEventListener("click", loadRD, { once: true });
 
-  if (existingScript) {
-    createRdForm();
-    return;
-  }
-
-  const script = document.createElement("script");
-
-  script.src =
-    "https://d335luupugsy2.cloudfront.net/js/rdstation-forms/stable/rdstation-forms.min.js";
-
-  script.async = true;
-  script.onload = createRdForm;
-
-  document.body.appendChild(script);
+  return () => {
+    window.removeEventListener("scroll", loadRD);
+    window.removeEventListener("click", loadRD);
+  };
 }, []);
 
   return (
@@ -691,6 +702,8 @@ function Beneficios() {
     <img
       src={familiaImg}
       alt="Família em condomínio"
+      loading="lazy"
+      decoding="async"
       className="w-full object-cover"
     />
 
@@ -891,7 +904,7 @@ function Galeria() {
       bairro: "Residencial Roland",
       cidade: "Limeira/SP",
       codigo: "61426",
-      preco: "R$ 780.000",
+      preco: "R$ 1.680.000",
       detalhes: ["4 Quartos", "1 Suíte", "2 Vagas", "140m²"],
       extras: ["Aceita Financiamento"],
       link: "https://roqueimoveis.com.br/imovel/61426/casa-em-condominio-4-quartos-residencial-roland-iii-parque-residencial-roland-iii-limeira/",
@@ -902,7 +915,7 @@ function Galeria() {
       bairro: "Portal de São Clemente",
       cidade: "Limeira/SP",
       codigo: "64251",
-      preco: "R$ 920.000",
+      preco: "R$ 2.100.000",
       detalhes: ["3 Quartos", "1 Suíte", "3 Vagas", "180m²"],
       extras: ["Estuda Permuta"],
       link: "https://roqueimoveis.com.br/imovel/64251/casa-em-condominio-3-quartos-portal-de-sao-clemente-portal-de-sao-clemente-limeira/",
@@ -913,7 +926,7 @@ function Galeria() {
       bairro: "Ville de France",
       cidade: "Limeira/SP",
       codigo: "66707",
-      preco: "R$ 590.000",
+      preco: "R$ 3.150.000",
       detalhes: ["3 Quartos", "1 Suíte", "2 Vagas", "110m²"],
       extras: ["Aceita Financiamento"],
       link: "https://roqueimoveis.com.br/imovel/66707/casa-em-condominio-3-quartos-ville-de-france-ville-de-france-limeira/",
@@ -924,7 +937,7 @@ function Galeria() {
       bairro: "Colinas de São João",
       cidade: "Limeira/SP",
       codigo: "68366",
-      preco: "R$ 1.150.000",
+      preco: "R$ 3.500.000",
       detalhes: ["3 Quartos", "1 Suíte", "3 Vagas", "220m²"],
       extras: ["Estuda Permuta"],
       link: "https://roqueimoveis.com.br/imovel/68366/casa-em-condominio-3-quartos-colinas-de-sao-joao-jardim-colinas-de-sao-joao-limeira/",
@@ -935,7 +948,7 @@ function Galeria() {
       bairro: "Residencial Roland I",
       cidade: "Limeira/SP",
       codigo: "69148",
-      preco: "R$ 1.300.000",
+      preco: "R$ 1.600.000",
       detalhes: ["3 Quartos", "1 Suíte", "4 Vagas", "250m²"],
       extras: ["Aceita Financiamento"],
       link: "https://roqueimoveis.com.br/imovel/69148/casa-em-condominio-3-quartos-residencial-roland-i-parque-residencial-roland-limeira/",
@@ -995,6 +1008,8 @@ function Galeria() {
                 <img
                   src={c.img}
                   alt={c.t}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-[200px] object-cover"
                 />
 
@@ -1754,7 +1769,7 @@ function Footer() {
         {/* LOGO + TEXTO + ATENDIMENTO + CONTATO */}
         <div>
           <img
-            src={LOGO}
+            src={logo}
             alt="Roque Imóveis"
             width={140}
             height={40}
