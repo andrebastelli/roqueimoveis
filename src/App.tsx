@@ -3,6 +3,12 @@ import heroImg from "@/assets/hero-condominio.jpg";
 import familiaImg from "@/assets/familia-condominio.jpg";
 import gourmetImg from "@/assets/area-gourmet.jpg";
 import aereoImg from "@/assets/condominio-aereo.jpg";
+import img57847 from "@/assets/57847.webp";
+import img61426 from "@/assets/61426.webp";
+import img64251 from "@/assets/64251.webp";
+import img66707 from "@/assets/66707.webp";
+import img68366 from "@/assets/68366.webp";
+import img69148 from "@/assets/69148.webp";
 
 const WHATSAPP_NUMBER = import.meta.env.VITE_WHATSAPP_NUMBER || "5519987102796";
 
@@ -869,7 +875,7 @@ function Diferenciais() {
 function Galeria() {
   const cards = [
     {
-      img: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
+      img: img57847,
       t: "Residência Condomínio Alto da Capela",
       bairro: "Jardim Ouro Verde",
       cidade: "Limeira/SP",
@@ -880,7 +886,7 @@ function Galeria() {
       link: "https://roqueimoveis.com.br/imovel/57847/casa-em-condominio-3-quartos-alto-da-capela-jardim-residencial-alto-da-capela-limeira/",
     },
     {
-      img: "https://images.unsplash.com/photo-1570129477492-45c003edd2be",
+      img: img61426,
       t: "Casa moderna em condomínio",
       bairro: "Residencial Roland",
       cidade: "Limeira/SP",
@@ -891,7 +897,7 @@ function Galeria() {
       link: "https://roqueimoveis.com.br/imovel/61426/casa-em-condominio-4-quartos-residencial-roland-iii-parque-residencial-roland-iii-limeira/",
     },
     {
-      img: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6",
+      img: img64251,
       t: "Casa com área gourmet",
       bairro: "Portal de São Clemente",
       cidade: "Limeira/SP",
@@ -902,7 +908,7 @@ function Galeria() {
       link: "https://roqueimoveis.com.br/imovel/64251/casa-em-condominio-3-quartos-portal-de-sao-clemente-portal-de-sao-clemente-limeira/",
     },
     {
-      img: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c",
+      img: img66707,
       t: "Casa térrea em condomínio",
       bairro: "Ville de France",
       cidade: "Limeira/SP",
@@ -913,7 +919,7 @@ function Galeria() {
       link: "https://roqueimoveis.com.br/imovel/66707/casa-em-condominio-3-quartos-ville-de-france-ville-de-france-limeira/",
     },
     {
-      img: "https://images.unsplash.com/photo-1580587771525-78b9dba3b914",
+      img: img68366,
       t: "Casa com piscina e lazer",
       bairro: "Colinas de São João",
       cidade: "Limeira/SP",
@@ -924,7 +930,7 @@ function Galeria() {
       link: "https://roqueimoveis.com.br/imovel/68366/casa-em-condominio-3-quartos-colinas-de-sao-joao-jardim-colinas-de-sao-joao-limeira/",
     },
     {
-      img: "https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6",
+      img: img69148,
       t: "Casa alto padrão",
       bairro: "Residencial Roland I",
       cidade: "Limeira/SP",
