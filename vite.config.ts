@@ -11,6 +11,6 @@ export default defineConfig({
     alias: { "@": path.resolve(__dirname, "./src") },
   },
   server: {
-    allowedHosts: ["sb-6g0qxrcorcgj.vercel.run"],
+    allowedHosts: ["sb-6g0qxrcorcgj.vercel.run", "sb-32es7m0pl4sq.vercel.run"],
   },
 });
