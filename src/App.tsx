@@ -3,7 +3,7 @@ import heroImg from "@/assets/hero-condominio.webp";
 import familiaImg from "@/assets/familia-condominio.webp";
 import gourmetImg from "@/assets/area-gourmet.webp";
 import aereoImg from "@/assets/condominio-aereo.webp";
-import logo from "@/assets/logo.webp";
+import imglogo from "@/assets/roque.webp";
 import img57847 from "@/assets/57847.webp";
 import img61426 from "@/assets/61426.webp";
 import img64251 from "@/assets/64251.webp";
@@ -67,7 +67,7 @@ function Header() {
           aria-label="Roque Imóveis - Início"
         >
           <img
-            src={logo}
+            src={imglogo}
             alt="Roque Imóveis"
             width={140}
             height={40}
@@ -1769,7 +1769,7 @@ function Footer() {
         {/* LOGO + TEXTO + ATENDIMENTO + CONTATO */}
         <div>
           <img
-            src={logo}
+            src={imglogo}
             alt="Roque Imóveis"
             width={140}
             height={40}
