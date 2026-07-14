@@ -1,0 +1,19 @@
+# Roque Imóveis
+
+Site oficial especializado em casas em condomínio fechado em Limeira/SP.
+
+## Sobre
+
+A Roque Imóveis atua no mercado imobiliário oferecendo atendimento personalizado para compradores que buscam imóveis em condomínios fechados.
+
+## Serviços
+
+- Compra de casas em condomínio
+- Consultoria imobiliária
+- Atendimento personalizado
+- Imóveis de alto padrão
+
+## Links
+
+- Site principal: https://www.roqueimoveis.com.br/
+- Landing page: https://casaemcondominio.roqueimoveis.com.br/
