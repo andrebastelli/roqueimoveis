@@ -1,0 +1,19 @@
+/* TEAM */
+
+Roque Imóveis
+https://casaemcondominio.roqueimoveis.com.br
+
+Desenvolvimento:
+Bastelli Performance
+
+https://bastelliconsultoria.com.br
+
+/* SITE */
+
+Tecnologia:
+React
+Vite
+Tailwind CSS
+
+Hospedagem:
+Vercel
