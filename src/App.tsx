@@ -290,9 +290,9 @@ useEffect(() => {
             <div className="bg-white/95 backdrop-blur rounded-lg p-[24px] shadow-[0_20px_60px_rgba(0,0,0,0.35)]">
 
               <div className="mb-[16px]">
-                <h3 className="text-[20px] font-bold text-primary">
-                  Receba as melhores oportunidades
-                </h3>
+                <h2 className="text-[20px] font-bold text-primary">
+  Receba as melhores oportunidades
+</h2>
                 <p className="text-[14px] text-gray-600">
                   Preencha e fale com um especialista agora.
                 </p>
