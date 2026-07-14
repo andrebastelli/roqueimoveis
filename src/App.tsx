@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
-import heroImg from "@/assets/hero-condominio.jpg";
-import familiaImg from "@/assets/familia-condominio.jpg";
-import gourmetImg from "@/assets/area-gourmet.jpg";
-import aereoImg from "@/assets/condominio-aereo.jpg";
+import heroImg from "@/assets/hero-condominio.webp";
+import familiaImg from "@/assets/familia-condominio.webp";
+import gourmetImg from "@/assets/area-gourmet.webp";
+import aereoImg from "@/assets/condominio-aereo.webp";
+import logo from "@assets/logo.webp";
 import img57847 from "@/assets/57847.webp";
 import img61426 from "@/assets/61426.webp";
 import img64251 from "@/assets/64251.webp";
@@ -18,8 +19,6 @@ const whatsappLink = (mensagem: string) =>
 const WHATSAPP_URL = whatsappLink(
   "Olá, gostaria de um atendimento personalizado para Casas em Condomínio"
 );
-
-const LOGO = "https://i.ibb.co/9Hyz5vjG/roque-imoveis.png";
 
 export default function App() {
   return (
@@ -68,7 +67,7 @@ function Header() {
           aria-label="Roque Imóveis - Início"
         >
           <img
-            src={LOGO}
+            src={logo}
             alt="Roque Imóveis"
             width={140}
             height={40}
@@ -703,6 +702,8 @@ function Beneficios() {
     <img
       src={familiaImg}
       alt="Família em condomínio"
+      loading="lazy"
+      decoding="async"
       className="w-full object-cover"
     />
 
@@ -1007,6 +1008,8 @@ function Galeria() {
                 <img
                   src={c.img}
                   alt={c.t}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-[200px] object-cover"
                 />
 
@@ -1766,7 +1769,7 @@ function Footer() {
         {/* LOGO + TEXTO + ATENDIMENTO + CONTATO */}
         <div>
           <img
-            src={LOGO}
+            src={logo}
             alt="Roque Imóveis"
             width={140}
             height={40}
