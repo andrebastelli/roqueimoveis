@@ -1318,340 +1318,113 @@ function Objecoes() {
   );
 }
 
-/* ---------- FORMULÁRIO ---------- */
+/* ---------- CTA PARA HERO ---------- */
 function Formulario() {
-  const [sent, setSent] = useState(false);
-
-  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-  e.preventDefault();
-
-  const form = e.currentTarget;
-
-  const data = {
-    nome: (form.nome as HTMLInputElement).value,
-    email: (form.email as HTMLInputElement).value,
-    whatsapp: (form.whatsapp as HTMLInputElement).value,
-    mensagem: (form.mensagem as HTMLTextAreaElement)?.value || "",
-  };
-
-  try {
-    await fetch("https://script.google.com/macros/s/AKfycbzm0-1b2cHZHAsX-UN5En4ISJvxB4f8-7EBBG5q2P5Q941VnOJmTyDpBa0GiQ0_7lxl_A/exec", {
-      method: "POST",
-      body: JSON.stringify(data),
-    });
-
-    setSent(true);
-    form.reset();
-
-    // 🔥 OPCIONAL (RECOMENDADO)
-    window.open(WHATSAPP_URL, "_blank");
-
-  } catch (error) {
-    console.error("Erro ao enviar:", error);
-  }
-};
-
   return (
     <section
       id="contato"
       className="
-        py-[80px]           /* MOBILE */
-        md:py-[110px]       /* TABLET */
-        lg:py-[130px]       /* DESKTOP */
+        py-[80px]
+        md:py-[110px]
+        lg:py-[130px]
       "
     >
       <div
         className="
-          mx-auto max-w-7xl
+          mx-auto max-w-5xl text-center
 
-          /* PADDING */
-          px-[16px]          /* MOBILE */
-          md:px-[24px]       /* TABLET */
-          lg:px-[32px]       /* DESKTOP */
-
-          /* GRID */
-          grid
-          grid-cols-1        /* MOBILE */
-          lg:grid-cols-2     /* DESKTOP */
-
-          gap-[40px]         /* MOBILE */
-          md:gap-[56px]
-          lg:gap-[80px]
-
-          items-start
+          px-[16px]
+          md:px-[24px]
+          lg:px-[32px]
         "
       >
-        {/* TEXTO */}
-        <div>
-          <p
-            className="
-              text-gold font-bold uppercase tracking-widest
+        {/* HEADLINE */}
+        <p className="text-gold font-bold uppercase tracking-widest text-[11px] md:text-[12px]">
+          Atendimento exclusivo
+        </p>
 
-              text-[11px]      /* MOBILE */
-              md:text-[12px]
-            "
-          >
-            Atendimento personalizado
-          </p>
-
-          <h2
-            className="
-              mt-[12px] font-black text-primary leading-tight
-
-              text-[28px]       /* MOBILE */
-              md:text-[40px]    /* TABLET */
-              lg:text-[52px]    /* DESKTOP */
-            "
-          >
-            Receba uma seleção exclusiva de casas em condomínio.
-          </h2>
-
-          <p
-            className="
-              mt-[16px] text-muted-foreground
-
-              text-[16px]       /* MOBILE */
-              md:text-[18px]
-              lg:text-[20px]
-            "
-          >
-            Preencha seus dados e um especialista da Roque Imóveis entra em contato em até 1 dia útil com opções alinhadas ao seu perfil.
-          </p>
-
-          {/* LISTA */}
-          <ul
-            className="
-              mt-[24px]
-              space-y-[10px]
-
-              text-[14px]      /* MOBILE */
-              md:text-[15px]
-              lg:text-[16px]
-
-              text-foreground/90
-            "
-          >
-            <li className="flex gap-[10px]">
-              <span className="text-gold font-black">✓</span>
-              Curadoria gratuita por especialistas
-            </li>
-            <li className="flex gap-[10px]">
-              <span className="text-gold font-black">✓</span>
-              Sem compromisso e sem cobrança
-            </li>
-            <li className="flex gap-[10px]">
-              <span className="text-gold font-black">✓</span>
-              Resposta rápida pelo WhatsApp
-            </li>
-          </ul>
-        </div>
-
-        {/* FORM CARD */}
-        <div
+        <h2
           className="
-            bg-card border border-border rounded-[16px] shadow-elegant
+            mt-[12px] font-black text-primary leading-tight
 
-            p-[20px]        /* MOBILE */
-            md:p-[28px]
-            lg:p-[36px]
+            text-[28px]
+            md:text-[40px]
+            lg:text-[52px]
           "
         >
-          {sent ? (
-            <div
-              className="
-                text-center
+          Pronto para encontrar sua casa em condomínio?
+        </h2>
 
-                py-[24px]      /* MOBILE */
-                md:py-[32px]
-              "
-            >
-              <div
-                className="
-                  mx-auto flex items-center justify-center font-black
-                  rounded-full bg-gradient-gold text-gold-foreground
+        <p
+          className="
+            mt-[16px] text-muted-foreground
 
-                  w-[56px] h-[56px]     /* MOBILE */
-                  md:w-[64px] md:h-[64px]
+            text-[16px]
+            md:text-[18px]
+            lg:text-[20px]
+          "
+        >
+          Receba uma curadoria personalizada com as melhores oportunidades disponíveis em Limeira.
+        </p>
 
-                  text-[24px]           /* MOBILE */
-                  md:text-[28px]
-                "
-              >
-                ✓
-              </div>
+        {/* BENEFÍCIOS */}
+        <div
+          className="
+            mt-[28px]
+            flex flex-col items-center gap-[10px]
 
-              <h3
-                className="
-                  mt-[16px] font-bold text-primary
-
-                  text-[20px]      /* MOBILE */
-                  md:text-[24px]
-                "
-              >
-                Recebemos seu contato!
-              </h3>
-
-              <p
-                className="
-                  mt-[8px] text-muted-foreground
-
-                  text-[14px]      /* MOBILE */
-                  md:text-[15px]
-                "
-              >
-                Em breve um especialista da Roque Imóveis falará com você.
-              </p>
-
-              <a
-  href={WHATSAPP_URL}
-  target="_blank"
-  rel="noopener noreferrer"
-  className="
-    relative overflow-hidden group
-    mt-[20px] inline-flex items-center justify-center
-    font-bold rounded-md transition-all duration-300
-
-    bg-gradient-gold text-gold-foreground shadow-gold
-
-    px-[20px] py-[12px]
-    text-[14px]
-
-    md:px-[24px] md:py-[14px]
-    md:text-[15px]
-
-    hover:-translate-y-[3px]
-    hover:shadow-[0_10px_30px_rgba(212,114,65,0.45)]
-  "
->
-  <span className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 bg-gradient-to-r from-transparent via-white/30 to-transparent translate-x-[-100%] group-hover:translate-x-[100%]" />
-
-  <span className="relative z-10 flex items-center gap-[6px]">
-    Falar agora no WhatsApp
-    <span className="transition-transform group-hover:translate-x-[4px]">→</span>
-  </span>
-</a>
-            </div>
-          ) : (
-            <form
-              onSubmit={onSubmit}
-              className="space-y-[14px]"
-              aria-label="Formulário de contato"
-            >
-              <Field label="Nome completo" id="nome" type="text" autoComplete="name" required />
-              <Field label="E-mail" id="email" type="email" autoComplete="email" required />
-              <Field label="WhatsApp" id="whatsapp" type="tel" autoComplete="tel" required pattern="[0-9\s\(\)\-\+]{10,}" />
-
-              <div>
-                <label
-                  htmlFor="msg"
-                  className="
-                    block font-semibold text-foreground
-
-                    text-[13px] mb-[6px]
-                    md:text-[14px]
-                  "
-                >
-                  Mensagem (opcional)
-                </label>
-
-                <textarea
-                  id="msg"
-                  name="mensagem"
-                  rows={4}
-                  className="
-                    w-full rounded-md border border-input bg-background
-                    focus:outline-none focus:ring-2 focus:ring-primary
-
-                    px-[12px] py-[10px]
-
-                    text-[14px]
-                    md:text-[15px]
-                  "
-                  placeholder="Conte sobre o imóvel que você procura..."
-                />
-              </div>
-
-              <button
-  type="submit"
-  className="
-    relative overflow-hidden group
-    w-full font-bold rounded-md transition-all duration-300
-
-    bg-gradient-primary text-primary-foreground shadow-elegant
-
-    py-[14px]
-    text-[15px]
-
-    md:py-[16px]
-    md:text-[16px]
-
-    /* HOVER */
-    hover:-translate-y-[3px]
-    hover:shadow-[0_10px_30px_rgba(0,0,0,0.25)]
-  "
->
-  {/* SHINE */}
-  <span className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 bg-gradient-to-r from-transparent via-white/30 to-transparent translate-x-[-100%] group-hover:translate-x-[100%]" />
-
-  <span className="relative z-10 flex items-center justify-center gap-[6px]">
-    Quero meu atendimento personalizado
-    <span className="transition-transform group-hover:translate-x-[4px]">→</span>
-  </span>
-</button>
-
-              <p
-                className="
-                  text-center text-muted-foreground
-
-                  text-[11px]      /* MOBILE */
-                  md:text-[12px]
-                "
-              >
-                Seus dados estão seguros. Não compartilhamos com terceiros.
-              </p>
-            </form>
-          )}
+            text-[14px]
+            md:text-[15px]
+            lg:text-[16px]
+            text-foreground/90
+          "
+        >
+          <span>✓ Atendimento rápido e personalizado</span>
+          <span>✓ Imóveis selecionados para seu perfil</span>
+          <span>✓ Sem compromisso</span>
         </div>
+
+        {/* BOTÃO CTA */}
+        <button
+          onClick={() => {
+            document.querySelector("#topo")?.scrollIntoView({
+              behavior: "smooth",
+            });
+          }}
+          className="
+            relative overflow-hidden group
+            mt-[32px]
+            inline-flex items-center justify-center
+
+            font-bold rounded-md transition-all duration-300
+
+            bg-gradient-primary text-primary-foreground shadow-elegant
+
+            px-[28px] py-[16px]
+            text-[15px]
+
+            md:px-[36px] md:py-[18px]
+            md:text-[17px]
+
+            hover:-translate-y-[4px]
+            hover:shadow-[0_12px_40px_rgba(0,0,0,0.30)]
+          "
+        >
+          {/* SHINE EFFECT */}
+          <span className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 bg-gradient-to-r from-transparent via-white/30 to-transparent translate-x-[-100%] group-hover:translate-x-[100%]" />
+
+          <span className="relative z-10 flex items-center gap-[8px]">
+            Quero ver as melhores opções
+            <span className="transition-transform group-hover:translate-x-[6px]">↑</span>
+          </span>
+        </button>
+
+        {/* MICROCOPY */}
+        <p className="mt-[14px] text-[12px] text-muted-foreground">
+          Você será direcionado para o formulário no topo da página.
+        </p>
       </div>
     </section>
-  );
-}
-
-/* INPUT */
-function Field({
-  label,
-  id,
-  ...rest
-}: { label: string; id: string } & React.InputHTMLAttributes<HTMLInputElement>) {
-  return (
-    <div>
-      <label
-        htmlFor={id}
-        className="
-          block font-semibold text-foreground
-
-          text-[13px] mb-[6px]
-          md:text-[14px]
-        "
-      >
-        {label}
-      </label>
-
-      <input
-        id={id}
-        name={id}
-        {...rest}
-        className="
-          w-full rounded-md border border-input bg-background
-          focus:outline-none focus:ring-2 focus:ring-primary
-
-          px-[12px] py-[10px]
-
-          text-[14px]
-          md:text-[15px]
-        "
-      />
-    </div>
   );
 }
 
