@@ -152,46 +152,58 @@ function Header() {
 
 /* ---------- HERO ---------- */
 function Hero() {
-  useEffect(() => {
+useEffect(() => {
+  let loaded = false;
+
   const formId = "roque-casa-em-condominio-lp-2ae7709192d34234a04c";
   const trackingId = "UA-125783347-1";
 
-  const container = document.getElementById(formId);
+  const loadRD = () => {
+    if (loaded) return;
+    loaded = true;
 
-  if (!container) return;
+    const container = document.getElementById(formId);
+    if (!container) return;
 
-  if (container.getAttribute("data-rd-loaded") === "true") return;
+    // 🔥 LIMPA antes de renderizar
+    container.innerHTML = "";
 
-  container.innerHTML = "";
+    const createForm = () => {
+      if ((window as any).RDStationForms) {
+        container.innerHTML = ""; // garante limpeza
 
-  const createRdForm = () => {
-    if ((window as any).RDStationForms) {
-      container.innerHTML = "";
+        new (window as any).RDStationForms(formId, trackingId).createForm();
 
-      new (window as any).RDStationForms(formId, trackingId).createForm();
+        container.setAttribute("data-rd-loaded", "true");
+      }
+    };
 
-      container.setAttribute("data-rd-loaded", "true");
+    const existingScript = document.querySelector(
+      'script[src*="rdstation-forms"]'
+    );
+
+    if (existingScript) {
+      createForm();
+      return;
     }
+
+    const script = document.createElement("script");
+    script.src =
+      "https://d335luupugsy2.cloudfront.net/js/rdstation-forms/stable/rdstation-forms.min.js";
+    script.async = true;
+    script.onload = createForm;
+
+    document.body.appendChild(script);
   };
 
-  const existingScript = document.querySelector(
-    'script[src*="rdstation-forms"]'
-  );
+  // dispara só uma vez
+  window.addEventListener("scroll", loadRD, { once: true });
+  window.addEventListener("click", loadRD, { once: true });
 
-  if (existingScript) {
-    createRdForm();
-    return;
-  }
-
-  const script = document.createElement("script");
-
-  script.src =
-    "https://d335luupugsy2.cloudfront.net/js/rdstation-forms/stable/rdstation-forms.min.js";
-
-  script.async = true;
-  script.onload = createRdForm;
-
-  document.body.appendChild(script);
+  return () => {
+    window.removeEventListener("scroll", loadRD);
+    window.removeEventListener("click", loadRD);
+  };
 }, []);
 
   return (
